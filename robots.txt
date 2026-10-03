@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://zerostart-os.github.io/zerostart-lp/sitemap.xml
