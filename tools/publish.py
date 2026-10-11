@@ -73,8 +73,15 @@ def rebuild():
     idx+="<h1>読みもの</h1><p>片付けの現場から、物の行先の話を書いています。</p><div class='list'>"+"".join(
         f"<a href='{a['id']}.html'>{html.escape(a['title'])}<small>{a['publishedAt'].replace('-','.')}</small></a>" for a in arts)+"</div>"+CTA+FOOT.format(base=BASE)
     open(os.path.join(ROOT,"kiji","index.html"),"w",encoding="utf-8").write(idx)
+    lp=os.path.join(ROOT,"index.html"); t=open(lp,encoding="utf-8").read()
+    if "<!--KIJI-->" in t:
+        items="".join(f'<a href="kiji/{a["id"]}.html" style="display:block;padding:14px 0;border-bottom:1px solid #D9DDD8;color:#18201C;text-decoration:none;font-weight:700">{html.escape(a["title"])}</a>' for a in arts[:3])
+        block=('<!--KIJI--><section class="sec" style="max-width:1080px;margin:0 auto;padding:56px 20px 8px">'
+               '<h2 style="margin:0 0 8px;font-size:clamp(22px,3.4vw,32px);line-height:1.5">片付けの現場から</h2>'+items+
+               '<p style="margin:14px 0 0"><a href="kiji/">読みもの一覧</a>　<a href="area/">愛媛の市ごとの粗大ごみの出し方</a></p></section><!--/KIJI-->')
+        t=re.sub(r"<!--KIJI-->.*?<!--/KIJI-->",lambda m:block,t,flags=re.S); open(lp,"w",encoding="utf-8").write(t)
     today=datetime.date.today().isoformat()
-    urls=[(BASE,today)]+([(BASE+"kiji/",arts[0]["publishedAt"])] if arts else [])+[(f"{BASE}kiji/{a['id']}.html",a["publishedAt"]) for a in arts]
+    urls=[(BASE,today),(BASE+"area/",today)]+([(BASE+"kiji/",arts[0]["publishedAt"])] if arts else [])+[(f"{BASE}kiji/{a['id']}.html",a["publishedAt"]) for a in arts]
     open(os.path.join(ROOT,"sitemap.xml"),"w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+"".join(f"<url><loc>{u}</loc><lastmod>{d}</lastmod></url>\n" for u,d in urls)+"</urlset>\n")
     return arts
 
