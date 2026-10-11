@@ -13,9 +13,9 @@ CITIES = [
  ("西条市","https://www.city.saijo.ehime.jp/soshiki/eisei/gominowakekata.html","電話かインターネットで事前に申込み、処理券を貼って出します。"),
  ("大洲市","https://www.city.ozu.ehime.jp/uploaded/attachment/46102.pdf","電話で予約し、粗大ごみ処理シールを貼って出します（市の「ごみ分別辞典」）。"),
  ("伊予市","https://www.city.iyo.lg.jp/shiminseikatsu/kurashi/gomi/bunbetsu/sodai/dashikata/calendar.html","申込みはがきか電子申請で申込み、届いた粗大ごみシールを貼って出します。"),
- ("四国中央市","https://www.city.shikokuchuo.ehime.jp/soshiki/15/1924.html",""),
- ("西予市","https://www.city.seiyo.ehime.jp/kurashi/life/gomi/2370.html",""),
- ("東温市","https://www.city.toon.ehime.jp/uploaded/attachment/22090.pdf",""),
+ ("四国中央市","https://www.city.shikokuchuo.ehime.jp/soshiki/15/1924.html","申込み方法と手数料は、市の「粗大ごみ収集運搬の手引き」（PDF）に載っています。問い合わせは生活環境課 ごみ減量推進係（0896-28-6015）です。"),
+ ("西予市","https://www.city.seiyo.ehime.jp/kurashi/life/gomi/2370.html","出し方は、市の「ごみの分け方・出し方」（PDF）の粗大ごみの項に載っています。問い合わせは環境衛生課（0894-62-1132）です。"),
+ ("東温市","https://www.city.toon.ehime.jp/uploaded/attachment/22090.pdf","1メートル程度・大人2人で運べる物を、小さくして集積場にそのまま出します。引っ越しや片付けで一度に多く出すときは集積場に出さず、専門業者に個別に頼むよう案内されています。東温市リサイクルセンターは粗大ごみを受け入れていません。"),
 ]
 def build():
     url=BASE+"area/"
